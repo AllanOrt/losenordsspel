@@ -600,33 +600,32 @@ Pacman.Map = function (size) {
         map[pos.y][pos.x] = type;
     };
 
-    function drawPills(ctx) { 
-
-        if (++pillSize > 30) {
-            pillSize = 0;
-        }
-        
-        for (i = 0; i < height; i += 1) {
-		    for (j = 0; j < width; j += 1) {
+    function drawPills(ctx) {
+        const pillRadius = 4;
+    
+        for (let i = 0; i < height; i++) {
+            for (let j = 0; j < width; j++) {
                 if (map[i][j] === Pacman.PILL) {
                     ctx.beginPath();
-
+    
                     ctx.fillStyle = "#000";
-		            ctx.fillRect((j * blockSize), (i * blockSize), 
-                                 blockSize, blockSize);
-
+                    ctx.fillRect(j * blockSize, i * blockSize, blockSize, blockSize);
+    
                     ctx.fillStyle = "#FFF";
-                    ctx.arc((j * blockSize) + blockSize / 2,
-                            (i * blockSize) + blockSize / 2,
-                            Math.abs(5 - (pillSize/3)), 
-                            0, 
-                            Math.PI * 2, false); 
+                    ctx.arc(
+                        (j * blockSize) + blockSize / 2,
+                        (i * blockSize) + blockSize / 2,
+                        pillRadius,
+                        0,
+                        Math.PI * 2,
+                        false
+                    );
                     ctx.fill();
                     ctx.closePath();
                 }
-		    }
-	    }
-    };
+            }
+        }
+    }
     
     function draw(ctx) {
         
