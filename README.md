@@ -6,3 +6,6 @@ Ett pacman-inspererat spel där man ska samla olika tecken för att bilda ett st
 
 # Länk
 Se det live [här](https://allanort.github.io/losenordsspel/).
+
+# Orginalspel
+Länk till det omodifierade spelet finns [här](https://github.com/daleharvey/pacman).
